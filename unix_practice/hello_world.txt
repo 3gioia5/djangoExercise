@@ -1,0 +1,19 @@
+
+the four modes of vim area:
+  - normal mode
+  - insert mode
+  - visual mode
+  - command mode
+the four modes of vim area:
+  - normal mode
+  - insert mode
+  - visual mode
+  - command mode
+the four modes of vim area:
+  - normal mode
+  - insert mode
+  - visual mode
+  - command mode
+
+
+

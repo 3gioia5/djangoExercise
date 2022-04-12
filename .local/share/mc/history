@@ -1,0 +1,11 @@
+[cmdline]
+0=mkdir Nov
+1=
+
+[Dir Hist New Right Panel]
+0=/home/gioia
+
+[Dir Hist New Left Panel]
+0=/home/gioia
+1=/home/gioia/unix_practice
+2=/home/gioia/unix_practice/reports
