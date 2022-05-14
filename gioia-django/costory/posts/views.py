@@ -1,12 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
+from django.core.paginator import Paginator
+
 
 # Create your views here.
+
+def index(request):
+  return redirect('post-list')
+
 def post_list(request):
   posts = Post.objects.all()
-  context = {"posts": posts}
-  return render(request, 'posts/post_list.html', context)
+  paginator = Paginator(posts, 6)
+  curr_page_number = request.GET.get('page')
+  if curr_page_number is None:
+    curr_page_number = 1
+  page = paginator.page(curr_page_number)
+  return render(request, 'posts/post_list.html', {'page': page})
 
 def post_detail(request, post_id):
   post = get_object_or_404(Post, id=post_id)
@@ -41,6 +51,3 @@ def post_delete(request, post_id):
     return redirect('post-list')
   else:
     return render(request, 'posts/post_confirm_delete.html', {'post': post})
-
-def index(request):
-  return redirect('post-list')
