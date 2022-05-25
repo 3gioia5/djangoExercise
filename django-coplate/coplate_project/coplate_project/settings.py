@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'coplate',
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -131,18 +132,23 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_SIGNUP_REDIRECT_URL = 'index'
 LOGIN_REDIRECT_URL = 'index'
+
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+
 ACCOUNT_SIGNUP_FORM_CLASS = 'coplate.forms.SignupForm'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
+
 ACCOUNT_EMAIL_VARIFICATION = "optional"
 ACCOUNT_EMAIL_CONFIRM_ON_GET = True
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
-PASSWORD_RESET_TIMEOUT_DAYS = 3
+
+ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+
 
 # Email Settings
 
