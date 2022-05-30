@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from allauth.account.views import PasswordChangeView
 from django.urls import reverse
-from django.views.generic import ListView, DetailView
-from coplate.models import Review
+from django.views.generic import ListView, DetailView, CreateView
+from .models import Review
+from .forms import ReviewForm
 
 # Create your views here.
 class IndexView(ListView):
@@ -17,6 +18,12 @@ class ReviewDetailView(DetailView):
   model = Review
   template_name  = "coplate/review_detail.html"
   pk_url_kwarg = "review_id"
+
+
+class ReviewCreateView(CreateView):
+  model = Review
+  form_class = ReviewForm
+  template_name = "coplate/review_form.html"
 
 
 class CustomPasswordChangeView(PasswordChangeView):
