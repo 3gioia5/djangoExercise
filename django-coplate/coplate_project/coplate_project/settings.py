@@ -132,7 +132,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_SIGNUP_REDIRECT_URL = 'index'
+ACCOUNT_SIGNUP_REDIRECT_URL = 'profile-set'
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'account_login'
 
@@ -141,7 +141,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 
-ACCOUNT_SIGNUP_FORM_CLASS = 'coplate.forms.SignupForm'
+# ACCOUNT_SIGNUP_FORM_CLASS = 'coplate.forms.SignupForm'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 
