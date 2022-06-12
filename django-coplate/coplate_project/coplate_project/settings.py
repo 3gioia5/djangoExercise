@@ -156,4 +156,9 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 
 # Email Settings
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"   # default setting
+EMAIL_HOST = "smtp.google.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "arocozy@gmail.com"
+EMAIL_HOST_PASSWORD = "uvbanxkjtvfteykz"
