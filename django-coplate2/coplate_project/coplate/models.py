@@ -22,7 +22,7 @@ class User(AbstractUser):
 
 
 class Review(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=35)
 
     restaurant_name = models.CharField(max_length=20)
 
