@@ -17,6 +17,8 @@ class User(AbstractUser):
 
     intro = models.CharField(max_length=60, blank=True)
 
+    email_domain = models.CharField(max_length=30, null=True)
+
     def __str__(self):
         return self.email
 
