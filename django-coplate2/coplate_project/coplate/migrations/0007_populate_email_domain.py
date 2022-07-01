@@ -16,5 +16,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(save_email_domain)
+        migrations.RunPython(save_email_domain, migrations.RunPython.noop)
     ]
