@@ -5,20 +5,24 @@ from .validators import validate_no_special_characters, validate_restaurant_link
 
 
 class User(AbstractUser):
+    def __str__(self):
+        return self.email
+
+
+class Profile(models.Model):
     nickname = models.CharField(
         max_length=15, 
         unique=True, 
         null=True,
         validators=[validate_no_special_characters],
-        error_messages={'unique': '이미 사용중인 닉네임입니다.'},
+        error_messages={'unique': '이미 사용 중인 닉네임입니다.'},
     )
 
     profile_pic = models.ImageField(default='default_profile_pic.jpg', upload_to='profile_pics')
 
     intro = models.CharField(max_length=60, blank=True)
 
-    def __str__(self):
-        return self.email
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Review(models.Model):
