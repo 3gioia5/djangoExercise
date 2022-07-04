@@ -25,10 +25,10 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
         fields = [
-            # 'nickname',
-            # 'profile_pic',
-            # 'intro',
+            'nickname',
+            'profile_pic',
+            'intro',
         ]
         widgets = {
-            # 'intro': forms.Textarea,
+            'intro': forms.Textarea,
         }

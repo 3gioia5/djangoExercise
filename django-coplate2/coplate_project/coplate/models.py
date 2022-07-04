@@ -5,11 +5,6 @@ from .validators import validate_no_special_characters, validate_restaurant_link
 
 
 class User(AbstractUser):
-    def __str__(self):
-        return self.email
-
-
-class Profile(models.Model):
     nickname = models.CharField(
         max_length=15, 
         unique=True, 
@@ -22,7 +17,8 @@ class Profile(models.Model):
 
     intro = models.CharField(max_length=60, blank=True)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.email
 
 
 class Review(models.Model):
