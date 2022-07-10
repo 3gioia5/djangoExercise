@@ -55,7 +55,7 @@ class Review(models.Model):
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
 
-    likes = GenericRelation('Like')
+    likes = GenericRelation('Like', related_query_name='review')
 
     def __str__(self):
         return self.title
@@ -75,7 +75,7 @@ class Comment(models.Model):
 
     review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name='comments')
 
-    likes = GenericRelation('Like')
+    likes = GenericRelation('Like', related_query_name='comment')
 
     def __str__(self):
         return self.content[:30]
