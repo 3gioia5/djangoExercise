@@ -16,6 +16,9 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         context = {}
         context['latest_reviews'] = Review.objects.all()[:4]
+        user = self.request.user
+        if user.is_authenticated:
+            context['latest_following_reviews'] = Review.objects.filter(author__followers=user)[:4]
         return render(request, 'coplate/index.html', context)
 
 
@@ -24,6 +27,16 @@ class ReviewListView(ListView):
     context_object_name = 'reviews'
     template_name = 'coplate/review_list.html'
     paginate_by = 8
+
+
+class FollowingReviewListView(LoginRequiredMixin, ListView):
+    model = Review
+    context_object_name = 'following_reviews'
+    template_name = 'coplate/following_review_list.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        return Review.objects.filter(author__followers=self.request.user)
 
 
 class ReviewDetailView(DetailView):
